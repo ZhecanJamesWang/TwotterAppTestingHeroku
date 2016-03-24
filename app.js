@@ -11,7 +11,6 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var session = require('express-session');
 var auth = require('./auth');
 
-var PORT = 3000;
 var mongoose = require('mongoose');
 /* CONNECT TO MONGOOSE */
 mongoose.connect(process.env.MONGOURI || 'mongodb://localhost/test');
@@ -97,8 +96,8 @@ function ensureAuthenticated(req, res, next) {
 // });
 
 
-app.listen(PORT, function() {
-  console.log("App running on port:", PORT);
+app.listen(process.env.PORT|| 5000, function() {
+  console.log("App running on port: 5000");
 });
 
 module.exports = app;
